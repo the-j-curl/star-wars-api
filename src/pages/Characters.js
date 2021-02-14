@@ -16,9 +16,10 @@ export const Characters = () => {
   const history = useHistory();
 
   useEffect(() => {
-    characterFetch();
-    console.log(characters);
-  }, [peopleURL, characters]);
+    characterFetch(peopleURL);
+    // console.log(characters);
+    // eslint-disable-next-line
+  }, [peopleURL]);
 
   const characterFetch = () => {
     setIsLoading(true);
