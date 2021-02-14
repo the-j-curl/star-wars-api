@@ -31,7 +31,7 @@ const Button = styled.button`
   height: 50px;
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
-  border: 2px solid #000;
+  border: 3px solid #000;
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 600;
