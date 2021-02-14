@@ -7,21 +7,32 @@ import { CharacterCard } from "../components/CharacterCard";
 import { BackButton } from "../components/BackButton";
 
 export const Characters = () => {
-  const PEOPLE_URL = "https://swapi.dev/api/people";
+  // const PEOPLE_URL = "https://swapi.dev/api/people";
+  const [peopleURL, setPeopleURL] = useState(
+    "https://swapi.dev/api/people/?page=1"
+  );
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
+    characterFetch();
+    console.log(characters);
+  }, [peopleURL, characters]);
+
+  const characterFetch = () => {
     setIsLoading(true);
-    fetch(PEOPLE_URL)
+    fetch(peopleURL)
       .then(res => res.json())
       .then(json => {
-        setCharacters(json.results);
+        setCharacters(characters.concat(json.results));
+        const nextPage = json.next;
+        if (nextPage) {
+          setPeopleURL(nextPage);
+        }
         setIsLoading(false);
       });
-    console.log(characters);
-  }, []);
+  };
 
   return (
     <>
