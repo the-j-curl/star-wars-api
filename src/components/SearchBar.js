@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components/macro";
 
+import { Button } from "../pages/Home";
+
 export const SearchBar = ({ handleSearchSubmit }) => {
   const [searchValue, setsearchValue] = useState("");
 
@@ -22,6 +24,11 @@ const SearchForm = styled.form`
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
+  margin-bottom: 10px;
+
+  @media (min-width: 1024px) {
+    justify-content: center;
+  }
 `;
 
 const SearchInput = styled.input`
@@ -39,22 +46,22 @@ const SearchInput = styled.input`
     font-size: 16px;
     padding: 0;
   }
+
+  @media (min-width: 768px) {
+    width: 40%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 18%;
+    margin: 0 30px;
+  }
 `;
 
-const SubmitButton = styled.button`
-  background: #fff;
+const SubmitButton = styled(Button)`
   padding: 2px 4px;
   margin: 8px 0 4px 0;
   width: 100px;
-  color: #000;
-  border: 1px solid #fff;
-  border-radius: 10px;
-  outline: none;
-  font-weight: 600;
-
-  :hover {
-    cursor: pointer;
-    background: #ffd700;
-    border: 1px solid #ffd700;
-  }
+  height: 28px;
+  border-radius: 15px;
+  font-size: 14px;
 `;

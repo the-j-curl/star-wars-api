@@ -40,6 +40,7 @@ const Button = styled.button`
   margin: 8px 0 5px 0;
   border-radius: 10px;
   padding: 6px;
+  outline: none;
   :hover {
     border-color: rgb(255, 232, 31);
     transition: all 0.3s ease-in;

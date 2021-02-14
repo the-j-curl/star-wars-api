@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Loader } from "../components/Loader";
 import { BackButton } from "../components/BackButton";
 import { FilmCard } from "../components/FilmCard";
-import { MainWrapper } from "./Characters";
+import { MainWrapper, H2 } from "./Characters";
 
 export const Films = () => {
   const FILMS_URL = "https://swapi.dev/api/films/?page=1";
@@ -33,7 +33,7 @@ export const Films = () => {
       {isLoading && <Loader />}
       {!isLoading && (
         <>
-          <h2>Films</h2>
+          <H2>Films</H2>
           <BackButton history={history} />
           <MainWrapper>
             {films.map(film => (

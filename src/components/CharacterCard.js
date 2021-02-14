@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components/macro";
 
+import { Button } from "../pages/Home";
+
 export const CharacterCard = ({ name, gender, birthYear, height }) => {
   const [onClick, setOnClick] = useState(false);
+
   return (
     <CharacterCardWrapper>
       {onClick && (
@@ -23,14 +26,14 @@ export const CharacterCard = ({ name, gender, birthYear, height }) => {
   );
 };
 
-const CharacterInfo = styled.div`
+export const CharacterInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
-const CharacterCardWrapper = styled.article`
+export const CharacterCardWrapper = styled.article`
   border: 2px solid #ffd700;
   width: 90%;
   max-width: 400px;
@@ -53,7 +56,7 @@ const CharacterCardWrapper = styled.article`
   }
 `;
 
-const H3 = styled.h3`
+export const H3 = styled.h3`
   color: #ffd700;
   margin: 6px 0;
   border-bottom: 1px solid transparent;
@@ -64,24 +67,15 @@ const H3 = styled.h3`
   }
 `;
 
-const InfoText = styled.p`
+export const InfoText = styled.p`
   margin: 4px 0;
 `;
 
-const ShowLessButton = styled.button`
-  background: #fff;
+export const ShowLessButton = styled(Button)`
   padding: 2px 4px;
   margin: 8px 0 4px 0;
   width: 100px;
-  color: #000;
-  border: 1px solid #fff;
-  border-radius: 10px;
-  outline: none;
-  font-weight: 600;
-
-  :hover {
-    cursor: pointer;
-    background: #ffd700;
-    border: 1px solid #ffd700;
-  }
+  height: 26px;
+  border-radius: 16px;
+  font-size: 12px;
 `;

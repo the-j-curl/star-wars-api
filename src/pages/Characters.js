@@ -8,13 +8,11 @@ import { BackButton } from "../components/BackButton";
 import { SearchBar } from "components/SearchBar";
 
 export const Characters = () => {
-  // const PEOPLE_URL = "https://swapi.dev/api/people";
   const [peopleURL, setPeopleURL] = useState(
     "https://swapi.dev/api/people/?page=1"
   );
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [searchText, setSearchText] = useState("");
   const history = useHistory();
 
   useEffect(() => {
@@ -51,11 +49,6 @@ export const Characters = () => {
       });
   };
 
-  // const searchCharacter = searchInput => {
-  //   // event.preventDefault();
-  //   setSearchText(searchInput);
-  //   console.log(`search text: ${searchText}`);
-  // };
   return (
     <>
       {isLoading && <Loader />}
@@ -93,6 +86,19 @@ export const MainWrapper = styled.main`
   }
 `;
 
-const H2 = styled.h2`
-  font-size: 20px;
+export const H2 = styled.h2`
+  font-size: 26px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffd700;
+
+  @media (min-width: 768px) {
+    font-size: 30px;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 36px;
+  }
 `;
