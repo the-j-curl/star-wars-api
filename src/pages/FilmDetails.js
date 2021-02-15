@@ -13,7 +13,6 @@ export const FilmDetails = () => {
 
   const [filmDetails, setFilmDetails] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-
   const history = useHistory();
 
   useEffect(() => {
@@ -25,7 +24,7 @@ export const FilmDetails = () => {
         setIsLoading(false);
       });
   }, [id, SINGLE_FILM_URL]);
-  console.log(filmDetails);
+
   return (
     <>
       {isLoading ? (
