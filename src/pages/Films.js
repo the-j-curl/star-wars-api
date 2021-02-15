@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { Loader } from "../components/Loader";
+import { Header } from "../components/Header";
 import { BackButton } from "../components/BackButton";
 import { FilmCard } from "../components/FilmCard";
-import { MainWrapper, H2 } from "./Characters";
+import { MainWrapper } from "./Characters";
 
 export const Films = () => {
   const FILMS_URL = "https://swapi.dev/api/films/?page=1";
@@ -15,7 +16,6 @@ export const Films = () => {
 
   useEffect(() => {
     filmFetch();
-    // console.log(films);
   }, []);
 
   const filmFetch = () => {
@@ -30,18 +30,21 @@ export const Films = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
-      {!isLoading && (
+      {isLoading ? (
+        <Loader />
+      ) : (
         <>
-          <H2>Films</H2>
+          <Header pageTitle="Films" />
           <BackButton history={history} />
           <MainWrapper>
-            {films.map(film => (
+            {films.map((film, index) => (
               <FilmCard
                 key={film.title}
+                id={index + 1}
                 title={film.title}
                 episodeId={film.episode_id}
                 releaseDate={film.release_date}
+                filmDescription={film.opening_crawl}
               />
             ))}
           </MainWrapper>

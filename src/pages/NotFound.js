@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components/macro";
 import { useHistory } from "react-router-dom";
 
-import { H2 } from "./Characters";
+import { Header } from "../components/Header";
 import { BackButton } from "../components/BackButton";
 
 export const NotFound = () => {
   const history = useHistory();
   return (
     <>
-      <H2>404 - Page Not Found</H2>
+      <Header pageTitle="404 - Page Not Found" />
       <NotFoundWrapper>
         <BackButton history={history} />
         <P>Search again you will...</P>

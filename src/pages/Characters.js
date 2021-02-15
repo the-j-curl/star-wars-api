@@ -3,6 +3,7 @@ import styled from "styled-components/macro";
 import { useHistory } from "react-router-dom";
 
 import { Loader } from "../components/Loader";
+import { Header } from "../components/Header";
 import { CharacterCard } from "../components/CharacterCard";
 import { BackButton } from "../components/BackButton";
 import { SearchBar } from "components/SearchBar";
@@ -51,10 +52,11 @@ export const Characters = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
-      {!isLoading && (
+      {isLoading ? (
+        <Loader />
+      ) : (
         <>
-          <H2>Characters</H2>
+          <Header pageTitle="Characters" />
           <BackButton history={history} />
           <SearchBar handleSearchSubmit={characterSearch} />
           <MainWrapper>
@@ -83,22 +85,5 @@ export const MainWrapper = styled.main`
   @media (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
-  }
-`;
-
-export const H2 = styled.h2`
-  font-size: 26px;
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffd700;
-
-  @media (min-width: 768px) {
-    font-size: 30px;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 36px;
   }
 `;
